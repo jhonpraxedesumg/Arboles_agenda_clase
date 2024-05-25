@@ -3,6 +3,8 @@ package org.example.servicio;
 import org.example.Modelo.Contacto;
 import org.example.Modelo.NodoContacto;
 
+import java.time.LocalDate;
+
 public class Agenda {
     private NodoContacto raiz;
 
@@ -10,8 +12,8 @@ public class Agenda {
         this.raiz = null;
     }
 
-    public void agregarContacto(String nombre, String telefono) {
-        Contacto nuevoContacto = new Contacto(nombre, telefono);
+    public void agregarContacto(String nombre, long telefono, String correoElectronico, LocalDate fechaNacimiento) {
+        Contacto nuevoContacto = new Contacto(nombre, telefono, correoElectronico, fechaNacimiento);
         if (this.raiz == null) {
             this.raiz = new NodoContacto(nuevoContacto);
         } else {
@@ -70,10 +72,11 @@ public class Agenda {
             } else if (nodo.getDcho() == null) {
                 return nodo.getIzdo();
             }
-
             NodoContacto temp = minValorNodo(nodo.getDcho());
             nodo.getContacto().setTelefono(temp.getContacto().getTelefono());
             nodo.getContacto().setNombre(temp.getContacto().getNombre());
+            nodo.getContacto().setCorreoElectronico(temp.getContacto().getCorreoElectronico());
+            nodo.getContacto().setFechaNacimiento(temp.getContacto().getFechaNacimiento());
             nodo.setDcho(eliminar(nodo.getDcho(), temp.getContacto().getNombre()));
         }
         return nodo;
@@ -94,7 +97,10 @@ public class Agenda {
     private void inOrden(NodoContacto nodo) {
         if (nodo != null) {
             inOrden(nodo.getIzdo());
-            System.out.println("Nombre: " + nodo.getContacto().getNombre() + ", Teléfono: " + nodo.getContacto().getTelefono());
+            System.out.println("Nombre: " + nodo.getContacto().getNombre() +
+                    ", Teléfono: " + nodo.getContacto().getTelefono() +
+                    ", Correo: " + nodo.getContacto().getCorreoElectronico() +
+                    ", Fecha de Nacimiento: " + nodo.getContacto().getFechaNacimiento());
             inOrden(nodo.getDcho());
         }
     }
