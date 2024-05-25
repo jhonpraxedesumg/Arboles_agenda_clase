@@ -14,9 +14,9 @@ public class Main {
 //        agenda.agregarContacto("Link", "987654321");
 //        agenda.agregarContacto("Peach", "456789123");
 
-        agenda.agregarContacto("Ana", 123456789L, "ana@example.com", LocalDate.of(1990, 5, 10));
-        agenda.agregarContacto("Beatriz", 987654321L, "beatriz@example.com", LocalDate.of(1988, 8, 15));
-        agenda.agregarContacto("Carlos", 456789123L, "carlos@example.com", LocalDate.of(1992, 2, 20));
+        agenda.agregarContacto("praxedes", 767766767, "praxedes@gmail.com.com", LocalDate.of(1994, 8, 27));
+        agenda.agregarContacto("amilcar", 585758585, "amilcar@.gmailcom", LocalDate.of(1962, 2, 12));
+        agenda.agregarContacto("salazar", 877587866, "salazar@gmail.com.com", LocalDate.of(1942, 6, 13));
 
         // Mostrar contactos
         System.out.println("Contactos en la agenda:");
@@ -32,11 +32,11 @@ public class Main {
         }
 
         // Eliminar un contacto
-        System.out.println("\nEliminando el contacto de Peach.");
+        System.out.println("\nEliminando el contacto de salazar.");
         agenda.eliminarContacto("Peach");
 
         // Mostrar contactos después de la eliminación
-        System.out.println("Contactos en la agenda después de eliminar a Alice:");
+        System.out.println("Contactos en la agenda después de eliminar a praxedes:");
         agenda.mostrarContactos();
     }
 }
