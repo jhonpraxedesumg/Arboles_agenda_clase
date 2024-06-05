@@ -9,7 +9,15 @@ public class Agenda {
     private NodoContacto raiz;
 
     public Agenda() {
-        this.raiz = null;
+        this.raiz = null;               //agregar get raiz y set raiz
+    }
+
+    public NodoContacto getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(NodoContacto raiz) {
+        this.raiz = raiz;
     }
 
     public void agregarContacto(String nombre, long telefono, String correoElectronico, LocalDate fechaNacimiento) {
@@ -36,24 +44,42 @@ public class Agenda {
             }
         }
     }
+///////////////////////////////////////////////////////////////////////
+//    public Contacto buscarContacto(String nombre) {
+//        return buscar(this.raiz, nombre);
+//    }
+//
+//    private Contacto buscar(NodoContacto nodo, String nombre) {
+//        if (nodo == null) {
+//            return null;
+//        }
+//        if (nombre.equals(nodo.getContacto().getNombre())) {
+//            return nodo.getContacto();
+//        } else if (nombre.compareTo(nodo.getContacto().getNombre()) < 0) {
+//            return buscar(nodo.getIzdo(), nombre);
+//        } else {
+//            return buscar(nodo.getDcho(), nombre);
+//        }
+//    }
+    ///////////////////////////////////////////////////////////////////////////////
+public Contacto buscarContacto(String valor) {
+    return buscar(this.raiz, valor);
+}
 
-    public Contacto buscarContacto(String nombre) {
-        return buscar(this.raiz, nombre);
-    }
-
-    private Contacto buscar(NodoContacto nodo, String nombre) {
+    private Contacto buscar(NodoContacto nodo, String valor) {
         if (nodo == null) {
             return null;
         }
-        if (nombre.equals(nodo.getContacto().getNombre())) {
-            return nodo.getContacto();
-        } else if (nombre.compareTo(nodo.getContacto().getNombre()) < 0) {
-            return buscar(nodo.getIzdo(), nombre);
+        Contacto contacto = nodo.getContacto();
+        if (valor.equals(contacto.getNombre()) || valor.equals(contacto.getTelefono().toString()) || valor.equals(contacto.getCorreoElectronico())) {
+            return contacto;
+        } else if (valor.compareTo(contacto.getNombre()) < 0) {
+            return buscar(nodo.getIzdo(), valor);
         } else {
-            return buscar(nodo.getDcho(), nombre);
+            return buscar(nodo.getDcho(), valor);
         }
     }
-
+    ///////////////////////////////////////////////
     public void eliminarContacto(String nombre) {
         this.raiz = eliminar(this.raiz, nombre);
     }

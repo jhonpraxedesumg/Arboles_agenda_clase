@@ -1,6 +1,6 @@
 package org.example.Modelo;
 
-public class NodoContacto {
+public class NodoContacto {    //implements serealizable
     private Contacto contacto;
     private NodoContacto izdo;
     private NodoContacto dcho;
