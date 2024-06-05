@@ -20,7 +20,7 @@ public class Main {
         agenda.agregarContacto("praxedes", 767766767, "praxedes@gmail.com.com", LocalDate.of(1994, 8, 27));
         agenda.agregarContacto("amilcar", 585758585, "amilcar@.gmailcom", LocalDate.of(1962, 2, 12));
         agenda.agregarContacto("salazar", 877587866, "salazar@gmail.com.com", LocalDate.of(1942, 6, 13));
-
+        agenda.agregarContacto("castillo", 12122216, "castillo@gmail.com.com", LocalDate.of(1972, 1, 11));
         // Mostrar contactos
         System.out.println("Contactos en la agenda:");
         agenda.mostrarContactos();
@@ -34,14 +34,14 @@ public class Main {
         System.out.println("contactos despues de cargados  ");
         agenda.mostrarContactos();
 //
-//        // Buscar un contacto
-//        System.out.println("\nBuscando el contacto de Link:");
-//        Contacto contacto = agenda.buscarContacto("Link");
-//        if (contacto != null) {
-//            System.out.println("Nombre: " + contacto.getNombre() + ", Teléfono: " + contacto.getTelefono());
-//        } else {
-//            System.out.println("Contacto no encontrado.");
-//        }
+        // Buscar un contacto
+        System.out.println("\nBuscando el contacto de Link:");
+        Contacto contacto = agenda.buscarContacto("amilcar@.gmailcom");
+        if (contacto != null) {
+            System.out.println("Nombre: " + contacto.getNombre() + ", Teléfono: " + contacto.getTelefono());
+        } else {
+            System.out.println("Contacto no encontrado.");
+        }
 
         // Eliminar un contacto
 //        System.out.println("\nEliminando el contacto de salazar.");

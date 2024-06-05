@@ -1,8 +1,9 @@
 package org.example.Modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Contacto {
+public class Contacto implements Serializable {
     private String nombre;
     private Long telefono;
     private String correoElectronico;
